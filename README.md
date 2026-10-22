@@ -23,6 +23,22 @@ The project also explores an **AI-driven software development workflow**: requir
 - **Russian and English interface.**
 - **Portable Windows distribution:** download, extract, and run without installing Python.
 
+## Screenshots
+
+**Main window.** Choose the source folder (**From**), an optional destination (**To**), the interface language, and what to do when a file name is already taken.
+
+![DownloadsOrganizer main window](docs/images/en/main-window.png)
+
+**File types.** Select the file types to sort, grouped by category, or add your own extension to an existing category.
+
+![Choosing file types](docs/images/en/file-types.png)
+
+**Sorting preview.** Before anything is moved, the preview lists every file with its category, the planned action, and the destination path. It also shows which files stay outside the plan and why.
+
+![Sorting preview](docs/images/en/preview.png)
+
+*The paths and file names in the screenshots are demo values.*
+
 ## Download and run
 
 **Platform:** Windows x64. The first published package is a portable ZIP; there is no installer.
