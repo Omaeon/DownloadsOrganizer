@@ -1,0 +1,7 @@
+# Keep line endings in the repository consistent with .editorconfig,
+# independent of the machine-wide core.autocrlf setting.
+* text=auto eol=lf
+*.bat text eol=crlf
+*.cmd text eol=crlf
+*.ico binary
+*.png binary

@@ -1,0 +1,44 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+.venv/
+venv/
+*.egg-info/
+*.whl
+
+# PyInstaller and artifacts
+build/
+dist/
+*.tmp
+
+# Local backups (the legacy ZIP contains an old EXE and build output)
+*.zip
+
+# Legacy spec embeds an absolute local user path; replaced by DownloadsOrganizer.spec
+/FileOrganizer.spec
+
+# Runtime logs (journals are written to %LOCALAPPDATA%, never into the repository)
+logs/
+*.log
+*.jsonl
+
+# Local secrets or credentials
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Local editor or Claude session data (keep shared config)
+.vscode/*.code-workspace
+.claude/settings.local.json
+CLAUDE.local.md
+
+# OS
+.DS_Store
+Thumbs.db

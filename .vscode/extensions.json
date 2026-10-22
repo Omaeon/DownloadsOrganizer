@@ -1,0 +1,10 @@
+{
+  "recommendations": [
+    "anthropic.claude-code",
+    "ms-python.python",
+    "charliermarsh.ruff",
+    "GitHub.vscode-pull-request-github",
+    "GitHub.vscode-github-actions",
+    "tamasfe.even-better-toml"
+  ]
+}

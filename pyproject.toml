@@ -1,0 +1,62 @@
+[project]
+name = "downloads-organizer"
+# Single release version; must match downloads_organizer.__version__ (checked by tests).
+# Published only after independent audit and owner acceptance.
+version = "1.0.0"
+description = "DownloadsOrganizer: sorts files from a folder into category folders (Windows desktop)"
+readme = "README.md"
+# DownloadsOrganizer's own code; bundled third-party components keep their own licenses
+# (packaging/release/THIRD_PARTY_NOTICES.txt)
+license = "MIT"
+license-files = ["LICENSE"]
+requires-python = ">=3.14.5,<3.15"
+dependencies = [
+    "customtkinter==6.0.0",
+]
+
+[dependency-groups]
+dev = [
+    "pytest==9.1.1",
+    "ruff==0.17.1",
+]
+build = [
+    "pyinstaller==6.22.3",
+]
+
+[tool.uv]
+# Desktop application, not a distributable library: no build backend, run from source.
+package = false
+default-groups = ["dev"]
+required-version = ">=0.13.1"
+
+[tool.pytest.ini_options]
+minversion = "9.0"
+testpaths = ["tests"]
+pythonpath = ["."]
+addopts = ["-ra", "--strict-markers", "--strict-config"]
+xfail_strict = true
+markers = [
+    "windows_only: requires Windows filesystem semantics (junctions, attributes)",
+    "fake_api: a scripted ntdll over a fake handle pool (no real NT call)",
+    "real_ntfs: real NT calls on NTFS, in tmp_path only",
+]
+
+[tool.ruff]
+target-version = "py314"
+line-length = 100
+# Legacy monolith kept unchanged as behavioural reference until it becomes a thin
+# launcher in phase 5; it is not linted until then.
+extend-exclude = ["file_organizer.py"]
+
+[tool.ruff.lint]
+select = ["E", "W", "F", "I", "B", "UP", "SIM", "RUF", "ANN", "PTH"]
+# The UI is in Russian: allow the Russian alphabet, keep detecting other confusables.
+allowed-confusables = [
+    "а", "б", "в", "г", "д", "е", "ё", "ж", "з", "и", "й", "к", "л", "м", "н", "о", "п",
+    "р", "с", "т", "у", "ф", "х", "ц", "ч", "ш", "щ", "ъ", "ы", "ь", "э", "ю", "я",
+    "А", "Б", "В", "Г", "Д", "Е", "Ё", "Ж", "З", "И", "Й", "К", "Л", "М", "Н", "О", "П",
+    "Р", "С", "Т", "У", "Ф", "Х", "Ц", "Ч", "Ш", "Щ", "Ъ", "Ы", "Ь", "Э", "Ю", "Я",
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = ["ANN"]

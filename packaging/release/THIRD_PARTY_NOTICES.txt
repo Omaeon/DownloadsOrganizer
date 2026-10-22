@@ -1,0 +1,118 @@
+DownloadsOrganizer 1.0.0 — THIRD-PARTY NOTICES / СТОРОННИЕ КОМПОНЕНТЫ
+======================================================================
+
+The portable package contains the third-party components listed below.
+Each component is distributed under its own license; the full texts are
+in the «licenses» folder next to this file.
+
+Пакет содержит перечисленные ниже сторонние компоненты. Каждый
+распространяется по своей лицензии; полные тексты — в папке «licenses»
+рядом с этим файлом.
+
+
+1. Python 3.14.5 (runtime: python314.dll, base_library.zip, *.pyd,
+   _internal\*.dll)
+   License: Python Software Foundation License Version 2
+   Texts: licenses\Python-PSF-LICENSE.txt (LICENSE.txt of the Windows
+          build of Python),
+          licenses\Python-licenses-and-acknowledgements.txt (the
+          «Licenses and Acknowledgements for Incorporated Software»
+          document of the Python 3.14 documentation).
+   They also contain the licenses of the components shipped with the
+   Windows build of Python and bundled here:
+   - Microsoft Distributable Code (VCRUNTIME140.dll, VCRUNTIME140_1.dll):
+     «Additional Conditions for this Windows binary build»
+     in Python-PSF-LICENSE.txt;
+   - bzip2/libbzip2 1.0.8 (_bz2.pyd): Python-PSF-LICENSE.txt;
+   - libffi (libffi-8.dll): both files;
+   - Zstandard (_zstd.pyd), BSD License: Python-PSF-LICENSE.txt;
+   - OpenSSL 3.0.20 (libcrypto-3.dll, libssl-3.dll), Apache License 2.0:
+     both files;
+   - libmpdec 4.0.0 (_decimal.pyd): Python-licenses-and-acknowledgements.txt;
+   - zlib 1.3.1 / zlib-ng (zlib1.dll): Python-licenses-and-acknowledgements.txt;
+   - xz/liblzma (_lzma.pyd): public domain / BSD Zero Clause, no notice
+     required;
+   - Tcl/Tk 8.6.15 (tcl86t.dll, tk86t.dll, _tcl_data, _tk_data, tcl8):
+     Python-PSF-LICENSE.txt, see also item 2.
+
+2. Tcl/Tk 8.6.15
+   License: Tcl/Tk license terms (BSD-style)
+   Text: licenses\Tcl-Tk-license.terms.txt
+   (also included in licenses\Python-PSF-LICENSE.txt and in
+   _internal\_tk_data\license.terms)
+
+3. CustomTkinter 6.0.0 — Copyright (c) 2023 Tom Schimansky
+   License: MIT
+   Text: licenses\CustomTkinter-MIT-LICENSE.txt
+   Note: the package metadata of CustomTkinter 6.0.0 states «CC0», while
+   the license file shipped in the package is the MIT license. The MIT
+   text is included here.
+   Includes the asset CustomTkinter_shapes_font.otf (part of
+   CustomTkinter, same license).
+
+4. Roboto font 2.137 (Roboto-Regular.ttf, Roboto-Medium.ttf, shipped
+   inside CustomTkinter) — Copyright 2011 Google Inc.
+   License: Apache License 2.0
+   Text: licenses\Apache-2.0-LICENSE.txt
+
+5. darkdetect 0.8.0 — Copyright (c) 2019, Alberto Sottile
+   License: BSD 3-Clause
+   Text: licenses\darkdetect-BSD-3-Clause-LICENSE.txt
+
+6. packaging 26.3 (packaging.version, used by CustomTkinter)
+   License: Apache License 2.0 OR BSD 2-Clause, at the user's choice
+   Texts: licenses\packaging-LICENSE.txt,
+          licenses\Apache-2.0-LICENSE.txt (= LICENSE.APACHE),
+          licenses\packaging-BSD-2-Clause-LICENSE.txt (= LICENSE.BSD)
+
+7. PyInstaller 6.22.3 bootloader (DownloadsOrganizer.exe launcher code)
+   License: GNU GPL v2 or later with the PyInstaller Bootloader
+   Exception, which allows distributing the bootloader with programs
+   under any license.
+   Text: licenses\PyInstaller-COPYING.txt
+
+
+The onefile EXE (DownloadsOrganizer-1.0.0-win-x64-onefile.exe) contains
+the same components inside the EXE instead of the _internal folder. Its
+license texts are in DownloadsOrganizer-1.0.0-win-x64-onefile-licenses.zip,
+which is distributed with it.
+EXE в одном файле (DownloadsOrganizer-1.0.0-win-x64-onefile.exe) содержит
+те же компоненты внутри EXE вместо папки _internal. Тексты их лицензий —
+в архиве DownloadsOrganizer-1.0.0-win-x64-onefile-licenses.zip, который
+распространяется вместе с ним.
+
+
+DownloadsOrganizer itself
+-------------------------
+DownloadsOrganizer's own code is distributed under the MIT License,
+Copyright (c) 2026 Omaeon. The text is in LICENSE.txt next to this file.
+The MIT License covers only DownloadsOrganizer's own code; the
+components listed above keep their own licenses.
+The MIT License permits free and commercial use, modification and
+distribution of the source code, modified versions included, provided
+the copyright notice and the license text are kept. The program is
+provided «as is», without warranty.
+Собственный код DownloadsOrganizer распространяется по лицензии MIT,
+Copyright (c) 2026 Omaeon. Текст — в файле LICENSE.txt рядом с этим
+файлом. Лицензия MIT относится только к собственному коду
+DownloadsOrganizer; перечисленные выше компоненты распространяются по
+своим лицензиям.
+Лицензия MIT разрешает бесплатное и коммерческое использование,
+изменение и распространение исходного кода, в том числе в изменённом
+виде, при условии сохранения уведомления об авторских правах и текста
+лицензии. Программа предоставляется «как есть», без гарантий.
+
+
+About the program / О программе
+-------------------------------
+The portable version needs no installed Python. Settings and journals
+are kept in %LOCALAPPDATA%\DownloadsOrganizer. Version 1.0.0 only MOVES
+files within one volume: copying between volumes is disabled. Completed
+moves are not undone automatically; files can be moved back by hand
+using the journal. Details: README_EN.txt, RELEASE_NOTES.txt.
+Портативной версии не нужен установленный Python. Настройки и журналы
+хранятся в %LOCALAPPDATA%\DownloadsOrganizer. Версия 1.0.0 только
+ПЕРЕМЕЩАЕТ файлы внутри одного тома: копирование между томами
+отключено. Выполненные перемещения не отменяются автоматически; вернуть
+файлы можно вручную по журналу. Подробнее: README_RU.txt,
+RELEASE_NOTES.txt.

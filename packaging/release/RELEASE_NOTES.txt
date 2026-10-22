@@ -1,0 +1,177 @@
+DownloadsOrganizer 1.0.0 — RELEASE NOTES / ПРИМЕЧАНИЯ К ВЫПУСКУ
+=================================================================
+
+Артефакт / Artifact: DownloadsOrganizer-1.0.0-win-x64-portable.zip
+Дополнительно / Also: DownloadsOrganizer-1.0.0-win-x64-onefile.exe
+    вместе с / with DownloadsOrganizer-1.0.0-win-x64-onefile-licenses.zip
+Платформа / Platform: Windows 10/11 x64, local NTFS drives
+Сборка / Build: PyInstaller 6.22.3, Python 3.14.5, CustomTkinter 6.0.0
+Подпись / Signature: нет / none (unsigned)
+Лицензия / License: MIT (Copyright (c) 2026 Omaeon), LICENSE.txt;
+    сторонние компоненты — по своим лицензиям / third-party components
+    under their own licenses: THIRD_PARTY_NOTICES.txt
+
+
+РУССКИЙ
+=======
+
+Возможности
+-----------
+- Раскладка файлов из одной папки по 10 категориям (40 стандартных
+  расширений): Torrent, PDF, Images, Office, EXE, Video, TXT, Archive,
+  Audio, Code.
+- Папка назначения: <Откуда>\DEL\<категория> или <Куда>\<категория>.
+- Свои расширения с выбором категории; сохраняются в
+  %LOCALAPPDATA%\DownloadsOrganizer\settings.json по кнопке
+  «Сохранить настройки».
+- Предпросмотр без изменений на диске: файл, категория, действие,
+  причина пропуска, путь назначения; сводка по файлам вне плана.
+- Перемещение только после предпросмотра без ошибок и явного
+  подтверждения. Существующие файлы не перезаписываются: новое имя
+  (имя_1.ext) или пропуск — по выбору.
+- Файл, изменившийся после предпросмотра, не перемещается; «Обновить
+  предпросмотр оставшихся» строит новый план.
+- Отмена во время перемещения — после текущего файла.
+- Журнал каждого перемещения (JSONL) в
+  %LOCALAPPDATA%\DownloadsOrganizer\logs; просмотр на вкладке
+  «Журналы» (только чтение).
+- Интерфейс на русском и английском.
+- Портативная поставка: распаковать и запустить, Python не нужен.
+- Дополнительно — EXE в одном файле; он распаковывает свои компоненты
+  во временную папку Windows при каждом запуске. Распространяется
+  вместе с архивом его лицензий (…-onefile-licenses.zip).
+
+Лицензия
+--------
+- Собственный код DownloadsOrganizer — лицензия MIT, Copyright (c) 2026
+  Omaeon (LICENSE.txt).
+- Разрешены бесплатное и коммерческое использование, изменение и
+  распространение исходного кода, в том числе в изменённом виде.
+- При распространении нужно сохранять уведомление об авторских правах
+  и текст лицензии MIT.
+- Программа предоставляется «как есть», без гарантий.
+- Сторонние компоненты распространяются по своим лицензиям
+  (THIRD_PARTY_NOTICES.txt, папка licenses); MIT их не заменяет.
+
+Безопасность и ограничения поведения
+------------------------------------
+- Только ПЕРЕМЕЩЕНИЕ внутри одного тома. Копирование между томами
+  (CROSS_VOLUME_COPY) в этой версии отключено.
+- Только локальные тома NTFS.
+- Только файлы верхнего уровня папки: без рекурсии, без перемещения
+  папок, ссылки и junction не обрабатываются.
+- Скрытые, системные, облачные (не загруженные), автономные файлы и
+  незавершённые загрузки пропускаются.
+- Автоматической отмены (rollback) выполненных перемещений нет;
+  автоматического восстановления по журналу нет. Вернуть файлы можно
+  вручную по журналу.
+- Журналы не удаляются и не очищаются программой.
+- Простой запуск и предпросмотр не создают журналов и не перемещают
+  файлы. В папку программы ничего не записывается.
+- Выбор типов файлов не сохраняется между запусками: при каждом запуске
+  ни один тип не выбран.
+
+Известные открытые проблемы
+---------------------------
+- HIGH-02 (OPEN): при смене буквы диска (DOS-привязки) во время
+  копирования между томами запись могла бы попасть на другой
+  физический том. Относится только к копированию между томами,
+  которое в 1.0.0 отключено. Не исправлено.
+- Medium: возможная гонка сборки мусора объектов Tkinter.
+- Medium: обработка junction в просмотре журналов.
+- Medium: ошибка закрытия системного дескриптора может скрыть ошибку
+  сохранения настроек.
+- Low: глобальная обработка колеса мыши.
+- Low: неполные свойства файлов в сводке «вне плана».
+- Low: задержка, если блокировка файла настроек занята другим окном.
+- Low: таблицы при масштабе 125 % выглядят мельче остального окна.
+- Low: при наборе длинного пути вручную окно отстаёт на несколько
+  секунд (вставка пути и «Обзор…» не затронуты).
+- Low: заголовок окна подтверждения светлый при тёмной теме.
+- Масштаб экрана: проверен только 125 %; 100 % и 150 % не проверены.
+- Windows 10 и «чистая» Windows без среды разработчика не проверены.
+- EXE не подписан; SmartScreen может предупреждать о неизвестном
+  издателе.
+
+
+ENGLISH
+=======
+
+Features
+--------
+- Sorts the files of one folder into 10 categories (40 standard
+  extensions): Torrent, PDF, Images, Office, EXE, Video, TXT, Archive,
+  Audio, Code.
+- Destination: <From>\DEL\<category> or <To>\<category>.
+- Own extensions with a chosen category; saved to
+  %LOCALAPPDATA%\DownloadsOrganizer\settings.json by «Save settings».
+- Preview that changes nothing on the disk: file, category, action,
+  skip reason, destination path; a summary of files outside the plan.
+- Moving only after an error-free preview and an explicit confirmation.
+  Existing files are never overwritten: a new name (name_1.ext) or a
+  skip, as chosen.
+- A file that changed after the preview is not moved; «Refresh the
+  preview of the remaining files» makes a new plan.
+- Cancel during moving takes effect after the current file.
+- A journal (JSONL) of every move in
+  %LOCALAPPDATA%\DownloadsOrganizer\logs; viewed on the «Journals» tab
+  (read only).
+- Russian and English interface.
+- Portable delivery: extract and run, no Python needed.
+- Also a single-file EXE; it extracts its components to the Windows
+  temporary folder at every start. It is distributed together with the
+  archive of its licenses (…-onefile-licenses.zip).
+
+License
+-------
+- DownloadsOrganizer's own code: MIT License, Copyright (c) 2026 Omaeon
+  (LICENSE.txt).
+- Free and commercial use, modification and distribution of the source
+  code, modified versions included, are permitted.
+- The copyright notice and the MIT License text must be kept when the
+  program is distributed.
+- The program is provided «as is», without warranty.
+- Third-party components are distributed under their own licenses
+  (THIRD_PARTY_NOTICES.txt, the licenses folder); MIT does not replace
+  them.
+
+Safety and behaviour limits
+---------------------------
+- MOVE within one volume only. Copying between volumes
+  (CROSS_VOLUME_COPY) is disabled in this version.
+- Local NTFS volumes only.
+- Top-level files only: no recursion, no moving of folders, links and
+  junctions are not handled.
+- Hidden, system, cloud (not downloaded), offline files and unfinished
+  downloads are skipped.
+- No automatic undo (rollback) of completed moves; no automatic recovery
+  from the journal. Files can be moved back by hand using the journal.
+- Journals are never deleted or cleaned up by the program.
+- Starting the program or making a preview creates no journal and moves
+  no file. Nothing is written into the program folder.
+- The file type selection is not saved between starts: at every start no
+  type is selected.
+
+Known open issues
+-----------------
+- HIGH-02 (OPEN): if the drive letter (DOS mapping) changed during a
+  copy between volumes, data could be written to another physical
+  volume. It concerns only copying between volumes, which is disabled
+  in 1.0.0. Not fixed.
+- Medium: a possible garbage-collection race of Tkinter objects.
+- Medium: junction handling in the journal viewer.
+- Medium: an error when closing a system handle can hide a settings
+  save error.
+- Low: global mouse-wheel handling.
+- Low: incomplete file properties in the «outside the plan» summary.
+- Low: a delay when the settings file lock is held by another window.
+- Low: at 125 % scaling the tables look smaller than the rest of the
+  window.
+- Low: typing a long path by hand makes the window lag for a few
+  seconds (pasting a path and «Browse…» are not affected).
+- Low: the confirmation window has a light title bar in the dark theme.
+- Display scaling: only 125 % was tested; 100 % and 150 % were not.
+- Windows 10 and a clean Windows without a developer environment were
+  not tested.
+- The EXE is not signed; SmartScreen may warn about an unknown
+  publisher.
